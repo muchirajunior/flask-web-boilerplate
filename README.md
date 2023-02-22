@@ -1,4 +1,4 @@
-# FLASK WEB BOILERPLATE
+# FLASK MVC WEB BOILERPLATE
 A boiler plate code for flask web include following setup:
 - flask Model View Controller(MVC) architecture
 - flask login
@@ -39,7 +39,7 @@ app.config['SQLALCHEMY_DATABASE_URI']="your_database_connection_string"
 ```
 or 
 ```
-    python main.py
+    python app.py
 ```
 
 ### Adding models
