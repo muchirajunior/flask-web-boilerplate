@@ -1,10 +1,10 @@
 from flask import Blueprint, render_template
 from flask_login import login_required
 
-admins=Blueprint("admins",__name__,url_prefix="/administartor",template_folder="../templates/admin")
+dashboard=Blueprint("dashboard",__name__,url_prefix="/Dashboard",template_folder="../templates/dashboard")
 
-@admins.route("/")
+@dashboard.route("/")
 @login_required
-def dashboard():
+def index():
 
     return render_template("dashboard.html")
