@@ -1,6 +1,6 @@
 from flask import jsonify, render_template
 from config import app,db
-from users.routes import users
+from controllers.user import users
 from flask_login import login_required
 
 app.register_blueprint(users)
