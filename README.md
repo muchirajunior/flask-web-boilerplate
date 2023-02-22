@@ -56,7 +56,12 @@ or
 
     blueprintName=Blueprint("blueprintName",__name__,url_prefix="/blueprintName",template_folder="../templates/blueprintName")
 ``` 
-- add routes 
+- import and register the controller on the app.py file
+```
+    from controllers.controller_name import blueprintName
+
+    app.register_blueprint(blueprintName)
+```
 
 ### adding views
 - in the template folder create a new folder matching blueprint name

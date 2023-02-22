@@ -3,7 +3,7 @@ from controllers.dashboard import dashboard
 from controllers.home import home
 from controllers.user import users
 
-
+#register blueprints
 app.register_blueprint(home)
 app.register_blueprint(dashboard)
 app.register_blueprint(users)

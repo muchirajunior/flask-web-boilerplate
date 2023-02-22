@@ -12,8 +12,10 @@ login_manager.login_view="users.login" #if user is not login redirect to login r
 
 #setup the flask admin page
 admin=Admin(app,template_mode="bootstrap4")
-admin.add_view( ModelView(Product, db.session))
-admin.add_view( ModelView(User, db.session))
+admin.add_view( ModelView(User, db.session)) 
+# remove this product example model and add your models below
+admin.add_view( ModelView(Product, db.session)) 
+
 
 #create login the decorator
 @login_manager.user_loader
