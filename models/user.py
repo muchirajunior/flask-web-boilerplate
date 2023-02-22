@@ -10,8 +10,7 @@ class User(db.Model,UserMixin):
     account:str=db.Column(db.String(20),default="user") #user/admin
     
 
-    def __init__(self,name,username,password,email):
+    def __init__(self,name,username,password):
         self.name=name
         self.username=username
         self.password=password
-        self.email=email

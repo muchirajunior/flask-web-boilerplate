@@ -1,21 +1,25 @@
-{% extends "base.html" %}
+{% extends "user_base.html" %}
 
 {% block body %}
-<form>
+<form class="card mx-auto p-2 mt-5" style="max-width: 40rem;" method="POST">
+  <h3 class="text-center">Sign Up</h3>
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      <label  class="form-label">Name</label>
+      <input type="text" name="name" class="form-control" required maxlength="20" />
     </div>
     <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
+      <label  class="form-label">Username</label>
+      <input type="text" name="username" class="form-control" required maxlength="20" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" name="password" class="form-control" required maxlength="10" />
     </div>
     <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      <a href="{{url_for('users.login')}}" class="nav-link">already have account, login.</a>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    
   </form>
 
 

@@ -1,21 +1,27 @@
 {% extends "user_base.html" %}
 
 {% block body %}
-<form class="container rounded bg-light mt-3 p-2" style="max-width: 40rem;">
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+
+<form class="card mx-auto p-2 mt-5" style="max-width: 40rem;" method="POST" >
+    <h3 class="text-center">Sign In</h3>
+      <label  class="form-label">Username</label>
+      <input type="text" name="username" class="form-control" required maxlength="20" />
     </div>
     <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
+      <label class="form-label">Password</label>
+      <input type="password" name="password" class="form-control" required maxlength="10"/>
     </div>
     <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      <a href="{{url_for('users.register')}}" class="nav-link">dont have an account, register.</a>
     </div>
-    <button type="submit" class="btn btn-primary w-100">Submit</button>
+    {% for message in get_flashed_messages() %}
+      <div class="alert alert-warning alert-dismissible fade show">
+         {{ message }} 
+         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> 
+      </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Submit</button>
+    
   </form>
 
 
