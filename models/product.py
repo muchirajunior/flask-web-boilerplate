@@ -5,6 +5,7 @@ class Product(db.Model):
     name=db.Column(db.String(50))
     price=db.Column(db.Float)
     amount=db.Column(db.Integer)
+    isActive=db.Column(db.Boolean,default=True)
 
     def __init__(self,name,price,amount):
         self.name=name
