@@ -8,14 +8,14 @@ from models.user import User
 #declare and initialize login manager for the flask app
 login_manager = LoginManager()
 login_manager.init_app(app)
-login_manager.login_view="users.login" #if user is not login redirect to login route
+login_manager.login_view="auth.login" #if user is not login redirect to login route
 
 #setup the flask admin page
-admin=Admin(app)
+admin=Admin(app,template_mode="bootstrap4")
 admin.add_view( ModelView(Product, db.session))
 admin.add_view( ModelView(User, db.session))
 
-#create the decorator
+#create login the decorator
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.filter_by(id=user_id).first()

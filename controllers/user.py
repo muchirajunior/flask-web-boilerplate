@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 from models.user import User
-users=Blueprint("users",__name__,url_prefix="/",template_folder="../templates/user")
+users=Blueprint("users",__name__,url_prefix="/user",template_folder="../templates/user")
 
 @users.route("/login")
 def login():
