@@ -1,6 +1,6 @@
 __pycache__/
 migrations/
 
-*.db
-*.sqlite
+/*.db
+/*.sqlite
 .env
