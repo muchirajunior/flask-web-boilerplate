@@ -8,7 +8,7 @@ class User(db.Model,UserMixin):
     username:str=db.Column(db.String(20),unique=True)
     password:str=db.Column(db.String(200))
     email:str=db.Column(db.String(30))
-    account:str=db.Column(db.String(20),default="user") #user/admin
+    role:str=db.Column(db.String(20),default="user") #user/admin
     
 
     def __init__(self,name,username,password):

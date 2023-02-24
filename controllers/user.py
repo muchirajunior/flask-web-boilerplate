@@ -17,7 +17,7 @@ def login():
         
         if bcrypt.check_password_hash(user.password, password) :
             login_user(user)
-            if(next_page != None):
+            if(next_page != None): #check for next page the user wanted to access and redirect if any
                 return redirect(next_page)
             return redirect ("/")
         else:
@@ -28,21 +28,29 @@ def login():
 
 @users.route('/register',methods=['POST','GET'])
 def register():
-    if request.method=="POST":
-        name=request.form["name"]
-        username=request.form["username"]
-        password=request.form["password"]
-        password=bcrypt.generate_password_hash(password,10)
+    try:
+        if request.method=="POST":
+            name=request.form["name"]
+            username=request.form["username"]
+            password=request.form["password"]
+            password=bcrypt.generate_password_hash(password,10).decode('utf-8')
 
-        user=User(name,username,password)
-        db.session.add(user)
-        db.session.commit()
+            user=User(name,username,password)
+            db.session.add(user)
+            db.session.commit()
 
-        login_user(user)
+            login_user(user)
 
-        return redirect("/")
+            return redirect("/")
+    except:
+        flash("error occured, could be invalid username/email")
+        return render_template('register.html')
 
     return render_template('register.html')
+
+@users.route("/restricted")
+def restricted():
+    return render_template("restricted.html")
 
 @users.route('/logout')
 def logout():

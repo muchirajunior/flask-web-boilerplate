@@ -18,6 +18,12 @@
     <div class="mb-3 form-check">
       <a href="{{url_for('users.login')}}" class="nav-link">already have account, login.</a>
     </div>
+    {% for message in get_flashed_messages() %}
+      <div class="alert alert-warning alert-dismissible fade show">
+         {{ message }} 
+         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> 
+      </div>
+    {% endfor %}
     <button type="submit" class="btn btn-primary">Submit</button>
     
   </form>

@@ -46,7 +46,7 @@ or
 - add your model to models folder
 - also add view to the admin view on config.py file
 ```python
-    admin.add_view( ModelView(ModelClassName, db.session))
+    admin.add_view( AdminModelView(ModelClassName, db.session))
 ```
 
 ### adding controller
@@ -67,3 +67,7 @@ or
 - in the template folder create a new folder matching blueprint name
 - add a base_name.html for specific blueprint designs like dashboard 
 - add html file following jinja2 syntax
+
+### Notes
+- user role should be admin for the user to view and edit the admin dashboard models
+- there is no method to register admin users, its recomended to update the role on the database

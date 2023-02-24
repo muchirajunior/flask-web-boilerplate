@@ -1,0 +1,15 @@
+{% extends "user_base.html" %}
+
+{% block body %}
+<div class="container">
+    <div class="card w-auto mt-5 mx-auto text-center">
+        <div class="card-header"> Unauthorized</div>
+        <div class="card-body">
+            <h5 class="card-title">Limited Access</h5>
+            <p class="card-text">Sorry. You not authorized to view this Page.</p>
+            <a href="/" class="btn btn-primary">Home</a>
+        </div>
+        <div class="card-footer text-muted">{{current_user.name}}</div>
+    </div>
+</div>
+{% endblock %}
