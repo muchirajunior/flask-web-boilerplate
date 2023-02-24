@@ -6,23 +6,27 @@ users=Blueprint("users",__name__,url_prefix="/user",template_folder="../template
 
 @users.route("/login",methods=['POST','GET'])
 def login():
-    if request.method=="POST":
-        username=request.form["username"]
-        password=request.form["password"]
-        next_page = request.args.get("next")
-        user:User= User.query.filter_by(username=username).first()
-        if user == None:
-            flash("user does not exist")
-            return render_template("login.html")
-        
-        if bcrypt.check_password_hash(user.password, password) :
-            login_user(user)
-            if(next_page != None): #check for next page the user wanted to access and redirect if any
-                return redirect(next_page)
-            return redirect ("/")
-        else:
-            flash("wrong user password")
-            return render_template("login.html")
+    try:
+        if request.method=="POST":
+            username=request.form["username"]
+            password=request.form["password"]
+            next_page = request.args.get("next")
+            user:User= User.query.filter_by(username=username).first()
+            if user == None:
+                flash("user does not exist")
+                return render_template("login.html")
+            
+            if bcrypt.check_password_hash(user.password, password) :
+                login_user(user)
+                if(next_page != None): #check for next page the user wanted to access and redirect if any
+                    return redirect(next_page)
+                return redirect ("/")
+            else:
+                flash("wrong user password")
+                return render_template("login.html")
+    except:
+        flash("login error !!")
+        return render_template("login.html")
 
     return render_template("login.html")
 
