@@ -5,24 +5,33 @@
 <form class="card mx-auto p-2 mt-5" style="max-width: 40rem;" method="POST" >
     <h3 class="text-center">Sign In</h3>
       <label  class="form-label">Username</label>
-      <input type="text" name="username" class="form-control" required maxlength="20" />
+      <input type="text" name="username" class="form-control" required maxlength="20" minlength="4" />
     </div>
     <div class="mb-3">
       <label class="form-label">Password</label>
-      <input type="password" name="password" class="form-control" required maxlength="10"/>
+      <input type="password" name="password" class="form-control" required maxlength="10" minlength="4"/>
     </div>
     <div class="mb-3 form-check">
       <a href="{{url_for('users.register')}}" class="nav-link">dont have an account, register.</a>
     </div>
+
+    <!-- <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-callback="onRecaptchaSuccess"></div> -->
+
     {% for message in get_flashed_messages() %}
       <div class="alert alert-warning alert-dismissible fade show">
          {{ message }} 
          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> 
       </div>
     {% endfor %}
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" >Submit</button>
     
   </form>
 
+<script>
+  const onRecaptchaSuccess=()=>{
+    console.log("captha verified");
+    //implement the recaptch logic here
+  }
+</script>
 
 {% endblock %}

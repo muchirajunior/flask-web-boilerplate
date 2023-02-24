@@ -33,6 +33,12 @@ app.config['SQLALCHEMY_DATABASE_URI']="your_database_connection_string"
     flask db upgrade
 ```
 
+### create a super/admin user
+- to create admin user run following command. replace admin and 1234 with your username and password
+```
+    python config.py --username admin --password 1234
+```
+
 ### run the code
 ```
     flask run
@@ -70,4 +76,4 @@ or
 
 ### Notes
 - user role should be admin for the user to view and edit the admin dashboard models
-- there is no method to register admin users, its recomended to update the role on the database
+- The application uses Bootstrap from cdn link in the base html files, you can add it to static folder and change
