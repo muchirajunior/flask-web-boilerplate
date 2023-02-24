@@ -79,6 +79,12 @@ or
 - add a base_name.html for specific blueprint designs like dashboard 
 - add html file following jinja2 syntax
 
+### extend session time
+- on main.py file extend the session time by updating this line
+```python
+    app.permanent_session_lifetime=timedelta(minutes=5) #set more minutes or change to hours
+```
+
 ### Notes
 - user role should be admin for the user to view and edit the admin dashboard models
 - The application uses Bootstrap from cdn link in the base html files, you can add it to static folder and change

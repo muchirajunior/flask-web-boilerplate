@@ -3,7 +3,7 @@ from flask import redirect,request, url_for
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from flask_login import LoginManager, current_user
-from main import app,db
+from main import app,db,bcrypt
 from models.product import Product #remove this import sample
 from models.user import User
 
@@ -24,7 +24,9 @@ def create_super_user():
         parser.add_argument('--username',required=True)
         parser.add_argument('--password',required=True)
         args = parser.parse_args()
-        user=User(name="Administrator",username=args.username,password=args.password)
+        password=bcrypt.generate_password_hash(args.password,10).decode('utf-8')
+        user=User(name="Administrator",username=args.username,password=password)
+        user.role="admin"
         db.session.add(user)
         db.session.commit()
         print("(: supper user created successfully :)")
