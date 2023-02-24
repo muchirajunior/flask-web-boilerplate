@@ -18,6 +18,8 @@ def load_user(user_id):
 
 #create a custom model view for protected view
 class AdminModelView(ModelView):
+    page_size=100
+    can_export=True
     def is_accessible(self):
         return current_user.is_authenticated and current_user.role=="admin"
                 
