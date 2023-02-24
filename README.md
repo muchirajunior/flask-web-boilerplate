@@ -61,9 +61,14 @@ or
     from flask import Blueprint, render_template
 
     blueprintName=Blueprint("blueprintName",__name__,url_prefix="/blueprintName",template_folder="../templates/blueprintName")
+     # add routes
+    @blueprintName.route("/route")
+    # add @login_required decorator for protected routes
+    def function_name():
+        return render_template("page.html")
 ``` 
 - import and register the controller on the app.py file
-```
+```python
     from controllers.controller_name import blueprintName
 
     app.register_blueprint(blueprintName)
