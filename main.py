@@ -6,7 +6,7 @@ from flask_migrate import Migrate
 
 app=Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI']="postgresql://junior:1234@localhost:5432/testfbl" #postgresql://username:pass@localhost:5432/database
+app.config['SQLALCHEMY_DATABASE_URI']="sqlite:///database.db" #postgresql://username:pass@localhost:5432/database
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]=False
 app.config["SECRET_KEY"]="ths973ydj28"
 
