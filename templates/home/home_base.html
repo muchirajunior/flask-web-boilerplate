@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <!-- add more links here -->
+        
+        </ul>
+
+        {% if current_user.is_authenticated %}
+        <span class="text-muted fw-semibold m-2">{{current_user.name}}</span>
+        <a href="{{url_for('users.logout')}}" class="btn btn-secondary m-1 rounded-pill">logout</a>
+        {% else %}
+        <a href="{{url_for('users.login')}}" class="btn btn-primary m-1 rounded-pill">login</a>
+        <a href="{{url_for('users.register')}}" class="btn btn-success m-1 rounded-pill">register</a>
+        {% endif%}
+      </div>
+    </div>
+  </nav>
+
+  {% block content %}
+
+  {% endblock %}
+
+  <div class="w-100 bg-white">
+    <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom mb-3">
+          <li class="nav-item"><a href="#!" class="nav-link px-2 text-muted">Home</a></li>
+          <li class="nav-item"><a href="#!" class="nav-link px-2 text-muted">Features</a></li>
+          <li class="nav-item"><a href="#!" class="nav-link px-2 text-muted">Pricing</a></li>
+          <li class="nav-item"><a href="#!" class="nav-link px-2 text-muted">FAQs</a></li>
+          <li class="nav-item"><a href="#!" class="nav-link px-2 text-muted">About</a></li>
+        </ul>
+        <p class="text-center text-muted">The Branding Company, Inc &copy; 2022 </p>
+    </footer>
+</div>
+
+{% endblock %}
