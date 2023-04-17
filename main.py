@@ -9,6 +9,7 @@ app=Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']="sqlite:///database.db" #postgresql://username:pass@localhost:5432/database
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]=False
 app.config["SECRET_KEY"]="ths973ydj28"
+app.config['FLASK_ADMIN_FLUID_LAYOUT'] = True
 
 db=SQLAlchemy(app)
 bcrypt=Bcrypt(app)
