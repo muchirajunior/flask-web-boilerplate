@@ -40,6 +40,7 @@ class AdminModelView(ModelView):
     can_view_details=True
     can_set_page_size=True
     column_display_all_relations=True
+    form_excluded_columns=['password']
     def is_accessible(self):
         return current_user.is_authenticated and current_user.role=="admin"
                 
